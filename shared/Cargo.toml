@@ -5,4 +5,5 @@ edition = "2024"
 
 [dependencies]
 aes-gcm = "0.10.3"
+duckdb = { version = "1.4.2", features = ["bundled"] }
 thiserror = "2.0.17"

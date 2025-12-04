@@ -1,0 +1,21 @@
+pub fn parse_id_option(
+    name: Option<String>,
+    title: Option<String>,
+    first_name: Option<String>,
+    middle_name: Option<String>,
+    last_name: Option<String>,
+    username: Option<String>,
+    company: Option<String>,
+    social_security_number: Option<String>,
+    passport_number: Option<String>,
+    license_number: Option<String>,
+    email: Option<String>,
+    telephone_number: Option<String>,
+    address: Option<Vec<String>>,
+    town: Option<String>,
+    province: Option<String>,
+    postcode: Option<String>,
+    nation: Option<String>,
+    description: Option<String>,
+) {
+}

@@ -1,5 +1,3 @@
-use std::string::FromUtf8Error;
-
 use thiserror::Error;
 
 #[derive(Debug, Error)]
@@ -16,8 +14,8 @@ impl From<aes_gcm::Error> for SharedLibError {
     }
 }
 
-impl From<FromUtf8Error> for SharedLibError {
-    fn from(err: FromUtf8Error) -> Self {
+impl From<std::string::FromUtf8Error> for SharedLibError {
+    fn from(err: std::string::FromUtf8Error) -> Self {
         Self::UTF8Error(err.to_string())
     }
 }

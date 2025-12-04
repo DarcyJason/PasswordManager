@@ -1,4 +1,4 @@
-use clap::{Parser, Subcommand, ValueEnum};
+use clap::{Parser, Subcommand};
 
 #[derive(Parser)]
 #[command(name = "Password Manager")]
@@ -6,16 +6,7 @@ use clap::{Parser, Subcommand, ValueEnum};
 #[command(about = "Store your password or API key safely", long_about = None)]
 pub struct Cli {
     #[command(subcommand)]
-    pub command: Option<Commands>,
-}
-
-#[derive(Clone, ValueEnum)]
-pub enum PasswordType {
-    Login,
-    PaymentCard,
-    ID,
-    Note,
-    SSHSecretKey,
+    pub commands: Option<Commands>,
 }
 
 #[derive(Subcommand)]
@@ -50,7 +41,7 @@ pub enum Commands {
         #[arg(long)]
         expired_year: Option<i32>,
         #[arg(long)]
-        safe_code: Option<i32>,
+        safe_code: Option<String>,
         #[arg(long)]
         description: Option<String>,
     },
@@ -65,7 +56,7 @@ pub enum Commands {
         #[arg(long)]
         middle_name: Option<String>,
         #[arg(long)]
-        surname: Option<String>,
+        last_name: Option<String>,
         #[arg(long)]
         username: Option<String>,
         #[arg(long)]
@@ -94,7 +85,16 @@ pub enum Commands {
         description: Option<String>,
     },
     #[command(about = "Store note")]
-    Note {},
+    Note {
+        name: Option<String>,
+        description: Option<String>,
+    },
     #[command(about = "Store your SSH Secret Key")]
-    SSHSecretKey {},
+    SSHSecretKey {
+        name: Option<String>,
+        private_key: Option<String>,
+        public_key: Option<String>,
+        fingerprint: Option<String>,
+        description: Option<String>,
+    },
 }
