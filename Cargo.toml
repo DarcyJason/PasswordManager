@@ -1,3 +1,9 @@
 [workspace]
+members = [
+    "cli",
+    "desktop/src-tauri",
+    "mobile",
+    "shared",
+    "web/backend", "mobile",
+]
 resolver = "2"
-members = ["cli","desktop/src-tauri" ,"shared", "web/backend"]
